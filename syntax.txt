@@ -1,0 +1,25 @@
+to gen int64 -> integer;min;max;name;visibility;end;
+to gen float64 -> float;min;max;name;visibility;end;
+to gen string -> string;range;len;name;visibility;end;
+to use generated variable -> var;name;end;
+for syntax -> for;from;to;it;end; {
+}
+test will generate incorrect if for couldn't iterate at least 1 iteration
+
+Ex:"
+integer;0;10;N;false;;
+var;N;\n;
+for;1;N;1;\n; {
+    float;1.1;2;;true; - ;
+    string;a~zA~Z1~9;4;;true;\n;
+}
+"
+Gen:"
+6
+1.6191411970436769 - h9LA
+1.414861677059307 - 6uyI
+1.9098839320816108 - 7lbT
+1.6775043191210417 - MR1Y
+1.7992854814492332 - D77r
+1.5546153255655257 - jEHN
+"

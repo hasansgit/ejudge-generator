@@ -16,7 +16,10 @@ func genAns(filename, solution string) {
 	cmd.Stdin = inputFile
 	cmd.Stdout = outputFile
 	err := cmd.Run()
-	if err != nil {
+
+	fileInfo, _ := os.Stat(filename + ".ans")
+
+	if err != nil || fileInfo.Size() == 0 {
 		os.Remove(filename + ".ans")
 	}
 }
